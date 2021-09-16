@@ -1,1 +1,1 @@
-{"path":"Automation Anywhere\\Bots\\F-BulkCheckInTestrRmD\\Parent","manualDependencies":[],"scannedDependencies":["Automation Anywhere\\Bots\\F-BulkCheckInTestrRmD\\Child"]}
+{"path":"Automation Anywhere\\Bots\\F-BulkCheckInTestrRmD\\Parent","manualDependencies":[],"scannedDependencies":["Automation Anywhere\\Bots\\F-BulkCheckInTestrRmD\\Child","Automation Anywhere\\Bots\\F-BulkCheckInTestrRmD\\SubChild"]}
