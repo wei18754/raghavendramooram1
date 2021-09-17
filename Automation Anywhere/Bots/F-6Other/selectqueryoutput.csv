@@ -1,0 +1,777 @@
+﻿dbo.AAFILE,Table,Default constraint,DF_AAFILE_comments,comments = ('')
+dbo.AAFILE,Table,Default constraint,DF_AAFile_content_type,content_type = ('application/octet-stream')
+dbo.AAFILE,Table,Default constraint,DF_AAFILE_created_on,created_on = (sysdatetime())
+dbo.AAFILE,Table,Default constraint,DF_AAFile_has_errors,has_errors = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFile_has_triggers,has_triggers = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFile_is_metadata,is_metadata = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFile_is_modified,is_edited = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFILE_is_protected,is_protected = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFILE_size_in_bytes,size_in_bytes = ((0))
+dbo.AAFILE,Table,Default constraint,DF_AAFILE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE,Table,Default constraint,DF_AAFILE_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE,Table,Default constraint,DF_AAFile_workspace_id,workspace_id = ((0))
+dbo.AAFILE,Table,Primary key,PK_AAFILE,id
+dbo.AAFILE,Table,Unique constraint,UQ_AAFILE_PATH_WORKSPACEID_TENANT,"path, tenant_uuid, workspace_id"
+dbo.AAFILE_AAFILE_VERSION,Table,Foreign key,FK_AAFILE_AAFILE_VERSION.file_id,dbo.AAFILE
+dbo.AAFILE_AAFILE_VERSION,Table,Foreign key,FK_AAFILE_AAFILE_VERSION.file_version_id,dbo.AAFILE_VERSION
+dbo.AAFILE_AAFILE_VERSION,Table,Primary key,PK_AAFILE_AAFILE_VERSION,"file_id, file_version_id"
+dbo.AAFILE_COMPILER_CACHE,Table,Default constraint,DF_AAFILE_COMPILER_CACHE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_COMPILER_CACHE,Table,Primary key,PK_AAFILE_COMPILER_CACHE.file_id,file_id
+dbo.AAFILE_DEPENDENCY,Table,Default constraint,DF_AAFILE_DEPENDENCY_created_on,created_on = (sysdatetime())
+dbo.AAFILE_DEPENDENCY,Table,Default constraint,DF_AAFILE_DEPENDENCY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_DEPENDENCY,Table,Default constraint,DF_AAFILE_DEPENDENCY_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE_DEPENDENCY,Table,Foreign key,FK_AAFILE_DEPENDENCY_AAFILE_VERSION,dbo.AAFILE_VERSION
+dbo.AAFILE_DEPENDENCY,Table,Foreign key,FK_AAFILE_DEPENDENCY_CHILDFILEID_AAFILE,dbo.AAFILE
+dbo.AAFILE_DEPENDENCY,Table,Foreign key,FK_AAFILE_DEPENDENCY_PARENTFILEID_AAFILE,dbo.AAFILE
+dbo.AAFILE_DEPENDENCY,Table,Primary key,PK_AAFILE_DEPENDENCY,id
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Default constraint,DF_AAFILE_DRAFT_DEPENDENCY_created_on,created_on = (sysdatetime())
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Default constraint,DF_AAFILE_DRAFT_DEPENDENCY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Default constraint,DF_AAFILE_DRAFT_DEPENDENCY_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Foreign key,FK_AAFILE_DRAFT_DEPENDENCY_AAFILE,dbo.AAFILE
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Foreign key,FK_AAFILE_DRAFT_DEPENDENCY_AAFILE_VERSION,dbo.AAFILE_VERSION
+dbo.AAFILE_DRAFT_DEPENDENCY,Table,Primary key,PK_AAFILE_DRAFT_DEPENDENCY,id
+dbo.AAFILE_GIT_COMMIT,Table,Foreign key,FK_AAFILE_GIT_COMMIT.file_id,dbo.AAFILE
+dbo.AAFILE_GIT_COMMIT,Table,Foreign key,FK_AAFILE_GIT_COMMIT.git_commit_id,dbo.GIT_COMMIT
+dbo.AAFILE_GIT_COMMIT,Table,Primary key,PK_AAFILE_GIT_COMMIT,"file_id, git_commit_id"
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_child_file_id,child_file_id = ((0))
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_created_on,created_on = (sysdatetime())
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_legacy_child_file_id,legacy_child_file_id = ((0))
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_legacy_parent_file_id,legacy_parent_file_id = ((0))
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_parent_file_id,parent_file_id = ((0))
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Default constraint,DF_AAFILE_MANUAL_DEPENDENCY_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Foreign key,FK_AAFILE_MANUAL_DEPENDENCY_AAFILE_CHILD_ID,dbo.AAFILE
+dbo.AAFILE_MANUAL_DEPENDENCY,Table,Foreign key,FK_AAFILE_MANUAL_DEPENDENCY_AAFILE_PARENT_ID,dbo.AAFILE
+dbo.AAFILE_VERSION,Table,Default constraint,DF_AAFILE_VERSION_created_on,created_on = (sysdatetime())
+dbo.AAFILE_VERSION,Table,Default constraint,DF_AAFILE_VERSION_is_protected,is_protected = ((0))
+dbo.AAFILE_VERSION,Table,Default constraint,DF_AAFILE_VERSION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_VERSION,Table,Default constraint,DF_AAFILE_VERSION_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE_VERSION,Table,Primary key,PK_AAFILEVERSION,id
+dbo.AAFILE_VERSION_TAG,Table,Default constraint,DF_AAFILE_VERSION_TAG_created_on,created_on = (sysdatetime())
+dbo.AAFILE_VERSION_TAG,Table,Default constraint,DF_AAFILE_VERSION_TAG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AAFILE_VERSION_TAG,Table,Default constraint,DF_AAFILE_VERSION_TAG_updated_on,updated_on = (sysdatetime())
+dbo.AAFILE_VERSION_TAG,Table,Foreign key,FK_AAFILEVERSIONTAG_FILEID_AAFILE_ID,dbo.AAFILE
+dbo.AAFILE_VERSION_TAG,Table,Foreign key,FK_AAFILEVERSIONTAG_FILEVERSIONID_AAFILEVERSION_ID,dbo.AAFILE_VERSION
+dbo.AAFILE_VERSION_TAG,Table,Primary key,PK_AAFILEVERSIONTAG,id
+dbo.AAFILE_VERSION_TAG,Table,Unique constraint,UQ__AAFILE_VERSION_TAG.tenant_id.file_id.name,"tenant_id, file_id, name"
+dbo.ACCOUNT_REGION,Table,Default constraint,DF_ACCOUNT_REGION_created_by,created_by = ((0))
+dbo.ACCOUNT_REGION,Table,Default constraint,DF_ACCOUNT_REGION_created_on,created_on = (sysdatetime())
+dbo.ACCOUNT_REGION,Table,Default constraint,DF_ACCOUNT_REGION_updated_by,updated_by = ((0))
+dbo.ACCOUNT_REGION,Table,Default constraint,DF_ACCOUNT_REGION_updated_on,updated_on = (sysdatetime())
+dbo.ACCOUNT_REGION,Table,Default constraint,DF_ACCOUNT_REGION_version,version = ((0))
+dbo.ACCOUNT_REGION,Table,Primary key,PK_ACCOUNTREGION_ID,uuid
+dbo.ACTIVEMQ_ACKS,Table,Default constraint,DF__ACTIVEMQ___PRIOR__4924D839,PRIORITY = ((5))
+dbo.ACTIVEMQ_ACKS,Table,Primary key,PK__ACTIVEMQ__58CEE7224E033744,"CONTAINER, CLIENT_ID, SUB_NAME"
+dbo.ACTIVEMQ_LOCK,Table,Primary key,PK__ACTIVEMQ__3214EC27E622F7DE,ID
+dbo.ACTIVEMQ_MSGS,Table,Primary key,PK__ACTIVEMQ__3214EC27F4318478,ID
+dbo.ACTIVITY,Table,Default constraint,DF_ACTIVITY_created_by,created_by = ((1))
+dbo.ACTIVITY,Table,Default constraint,DF_ACTIVITY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.ACTIVITY,Table,Default constraint,DF_ACTIVITY_updated_by,updated_by = ((1))
+dbo.ACTIVITY,Table,Default constraint,DF_ACTIVITY_version,version = ((0))
+dbo.ACTIVITY,Table,Primary key,PK_dbo.Activities,Id
+dbo.AD_GROUP,Table,Default constraint,DF_AD_GROUP_created_on,created_on = (sysdatetime())
+dbo.AD_GROUP,Table,Default constraint,DF_AD_GROUP_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AD_GROUP,Table,Default constraint,DF_AD_GROUP_updated_on,updated_on = (sysdatetime())
+dbo.AD_GROUP,Table,Primary key,PK_AD_GROUP_ID,id
+dbo.AD_GROUP,Table,Unique constraint,UK_AD_GROUP_GROUP_NAME_DOMAIN,"group_name, domain"
+dbo.AD_GROUP,Table,Unique constraint,UK_AD_GROUP_MAPPING_NAME,mapping_name
+dbo.AD_GROUP,Table,Unique constraint,UK_AD_GROUP_OBJECT_SID,object_sid
+dbo.AD_GROUP_MAPPING,Table,Default constraint,DF_AD_GROUP_MAPPING_created_on,created_on = (sysdatetime())
+dbo.AD_GROUP_MAPPING,Table,Default constraint,DF_AD_GROUP_MAPPING_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AD_GROUP_MAPPING,Table,Default constraint,DF_AD_GROUP_MAPPING_updated_on,updated_on = (sysdatetime())
+dbo.AD_GROUP_MAPPING,Table,Foreign key,FK_AD_GROUP_MAPPING_NAME.id,dbo.AD_GROUP
+dbo.AD_GROUP_MAPPING,Table,Foreign key,FK_AD_GROUP_MAPPING_ROLE.id,dbo.ROLE
+dbo.AD_GROUP_MAPPING,Table,Primary key,PK_AD_GROUP_MAPPING_ID,id
+dbo.AD_GROUP_MAPPING,Table,Unique constraint,UK_AD_MAPPING_GROUP_ROLE_id,"group_id, role_id"
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Default constraint,DF_AD_SYS_ASSIGNED_USER_ROLE_created_on,created_on = (sysdatetime())
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Default constraint,DF_AD_SYS_ASSIGNED_USER_ROLE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Default constraint,DF_AD_SYS_ASSIGNED_USER_ROLE_updated_on,updated_on = (sysdatetime())
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Foreign key,FK_AD_SYS_ASSIGN_ROLE.id,dbo.ROLE
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Foreign key,FK_AD_SYS_ASSIGN_USER.id,dbo.USERS
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Primary key,PK_AD_SYS_ASSIGN_USER_ROLE_ID,id
+dbo.AD_SYS_ASSIGNED_USER_ROLE,Table,Unique constraint,UK_AD_SYS_USER_ROLE_id,"user_id, role_id"
+dbo.ASSOCIATION,Table,Foreign key,FK_ASSOCIATIONS_FROMORGANIZATIONID_ORGANIZATIONS_UUID,dbo.ORGANIZATION
+dbo.ASSOCIATION,Table,Primary key,PK_ASSOCIATION_ID,uuid
+dbo.AUDIT_MESSAGE_LOG,Table,Default constraint,DF_AUDIT_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AUDIT_MESSAGE_LOG,Table,Primary key,PK_dbo.AuditMessageLog,id
+dbo.AUTHENTICATION_MESSAGE_LOG,Table,Default constraint,DF_AUTHENTICATION_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AUTHENTICATION_MESSAGE_LOG,Table,Primary key,PK_dbo.AuthenticationMessageLog,id
+dbo.AUTOMATION_DEVICE,Table,Default constraint,DF_AUTOMATION_DEVICE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AUTOMATION_DEVICE,Table,Primary key,PK_automation_device,id
+dbo.AUTOMATION_PACKAGE,Table,Default constraint,DF_AUTOMATION_PACKAGE_created_on,created_on = (sysdatetime())
+dbo.AUTOMATION_PACKAGE,Table,Default constraint,DF_AUTOMATION_PACKAGE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AUTOMATION_PACKAGE,Table,Default constraint,DF_AUTOMATION_PACKAGE_updated_on,updated_on = (sysdatetime())
+dbo.AUTOMATION_PACKAGE,Table,Default constraint,DF_AUTOMATION_PACKAGE_user_id,user_id = ((0))
+dbo.AUTOMATION_PACKAGE,Table,Primary key,PK_AUTOMATION_PACKAGE,id
+dbo.AUTOMATION_PACKAGE_FILES,Table,Foreign key,FK_PACKAGE_FILES.packageId,dbo.AUTOMATION_PACKAGE
+dbo.AUTOMATION_PACKAGE_FILES,Table,Primary key,PK_AUTOMATION_PACKAGE_FILES_ID,id
+dbo.AUTOMATION_POOL,Table,Primary key,PK_automation_pool,id
+dbo.AUTOMATION_RUNAS_USER,Table,Primary key,PK_automation_run_as_user,id
+dbo.AUTOMATION_SCHEDULE,Table,Default constraint,DF_AUTOMATION_SCHEDULE_num_of_run_as_users_to_use,num_of_run_as_users_to_use = ((0))
+dbo.AUTOMATION_SCHEDULE,Table,Default constraint,DF_AUTOMATION_SCHEDULE_override_default_device,override_default_device = ((0))
+dbo.AUTOMATION_SCHEDULE,Table,Default constraint,DF_AUTOMATION_SCHEDULE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.AUTOMATION_SCHEDULE,Table,Primary key,PK_Automation_Schedule,id
+dbo.BI_AUDIT_MESSAGE_LOG,Table,Default constraint,DF_BI_AUDIT_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.BI_AUDIT_MESSAGE_LOG,Table,Primary key,PK_biMessageLog,id
+dbo.BI_BLM_CLEAN_UP,Table,Default constraint,DF_BI_BLM_CLEAN_UP_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.BI_BLM_CLEAN_UP,Table,Primary key,PK_biBlmCleanUp,id
+dbo.BLM_MESSAGE_LOG,Table,Primary key,PK_dbo.BlmMessageLog,id
+dbo.BLM_STATUS,Table,Default constraint,DF_BLM_STATUS_created_on,created_on = (sysdatetime())
+dbo.BLM_STATUS,Table,Default constraint,DF_BLM_STATUS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.BLM_STATUS,Table,Default constraint,DF_BLM_STATUS_updated_on,updated_on = (sysdatetime())
+dbo.BLM_STATUS,Table,Primary key,PK_BLM_STATUS,id
+dbo.BLM_STATUS,Table,Unique constraint,UQ__BLM_STATUS.tenant_uuid.request_id,"request_id, tenant_uuid"
+dbo.BOT_ASSOCIATIONS,Table,Check constraint,CK_NULL_CHECK,([user_id] IS NOT NULL OR [role_id] IS NOT NULL)
+dbo.BOT_ASSOCIATIONS,Table,Default constraint,DF_BOT_ASSOCIATIONS_private,private = ((0))
+dbo.BOT_ASSOCIATIONS,Table,Primary key,PK_BOT_ASSOCIATION.id,id
+dbo.BOT_ASSOCIATIONS,Table,Unique constraint,UQ_USER_ROLE_BOT,"user_id, role_id, bot_file_id"
+dbo.BOT_RECORDER_MESSAGE_LOG,Table,Default constraint,DF_BOT_RECORDER_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.BOT_RECORDER_MESSAGE_LOG,Table,Primary key,PK.BotRecorderMessageLog,id
+dbo.BOTSTORE_IMPORTS,Table,Primary key,PK_BOTSTORE_IMPORT.id,id
+dbo.BOTSTORE_IMPORTS,Table,Unique constraint,UQ_BOTSTORE_IMPORT_STATUS,"bot_name, request_id, user_id, tenant_uuid"
+dbo.BOTSTORE_IMPORTS,Table,Unique constraint,UQ_BOTSTORE_IMPORT_UNIQUE_ID,"bot_store_order_id, user_id, tenant_uuid"
+dbo.BOTSTORE_SUBMISSIONS,Table,Primary key,PK_BOTSTORE_SUBMISSION.id,id
+dbo.BOTSTORE_SUBMISSIONS,Table,Unique constraint,UQ_BOTSTORE_SUBMISSION_UNIQUE_COMBO,"bot_name, request_id, user_id"
+dbo.BOTSTORE_SUBMISSIONS,Table,Unique constraint,UQ_BOTSTORE_SUBMISSION_UNIQUE_ID,"file_id, user_id"
+dbo.CONFIGURATION,Table,Default constraint,DF_CONFIGURATION_secured,secured = ((0))
+dbo.CONFIGURATION,Table,Default constraint,DF_CONFIGURATION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CONFIGURATION,Table,Primary key,PK_dbo.CONFIGURATION,id
+dbo.CONFIGURATION,Table,Unique constraint,UQ_CONFIGURATION.tenant_uuid.subject_type.subject_id.category.key,"category, config_key, subject_type, subject_id, tenant_uuid"
+dbo.COUNTRY_REGION,Table,Default constraint,DF_COUNTRY_REGION_created_by,created_by = ((0))
+dbo.COUNTRY_REGION,Table,Default constraint,DF_COUNTRY_REGION_created_on,created_on = (sysdatetime())
+dbo.COUNTRY_REGION,Table,Default constraint,DF_COUNTRY_REGION_updated_by,updated_by = ((0))
+dbo.COUNTRY_REGION,Table,Default constraint,DF_COUNTRY_REGION_updated_on,updated_on = (sysdatetime())
+dbo.COUNTRY_REGION,Table,Default constraint,DF_COUNTRY_REGION_version,version = ((0))
+dbo.COUNTRY_REGION,Table,Primary key,PK_COUNTRYREGION_ID,uuid
+dbo.CREDENTIAL,Table,Default constraint,DF_CREDENTIAL_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CREDENTIAL,Table,Foreign key,FK_CREDENTIAL.locker_id,dbo.LOCKER
+dbo.CREDENTIAL,Table,Primary key,PK_CREDENTIAL.id,id
+dbo.CREDENTIAL,Table,Unique constraint,UQ_CREDENTIAL.name,"name, tenant_uuid"
+dbo.CREDENTIAL_ATTRIBUTE,Table,Default constraint,DF_CREDENTIAL_ATTRIBUTE_masked,masked = ((1))
+dbo.CREDENTIAL_ATTRIBUTE,Table,Default constraint,DF_CREDENTIAL_ATTRIBUTE_password_flag,password_flag = ((0))
+dbo.CREDENTIAL_ATTRIBUTE,Table,Default constraint,DF_CREDENTIAL_ATTRIBUTE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CREDENTIAL_ATTRIBUTE,Table,Default constraint,DF_CREDENTIAL_ATTRIBUTE_user_specific,user_specific = ((0))
+dbo.CREDENTIAL_ATTRIBUTE,Table,Foreign key,FK_CREDENTIAL_ATTRIBUTE.credential_id,dbo.CREDENTIAL
+dbo.CREDENTIAL_ATTRIBUTE,Table,Primary key,PK_CREDENTIAL_ATTRIBUTE.id,id
+dbo.CREDENTIAL_ATTRIBUTE,Table,Unique constraint,UQ_CREDENTIAL_ATTRIBUTE.credential_id.name,"name, credential_id"
+dbo.CREDENTIAL_ATTRIBUTE_VALUE,Table,Default constraint,DF_CREDENTIAL_ATTRIBUTE_VALUE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CREDENTIAL_ATTRIBUTE_VALUE,Table,Foreign key,FK_CREDENTIAL_ATTRIBUTE_VALUE.credential_attribute_id,dbo.CREDENTIAL_ATTRIBUTE
+dbo.CREDENTIAL_ATTRIBUTE_VALUE,Table,Primary key,PK_CREDENTIAL_ATTRIBUTE_VALUE.id,id
+dbo.CREDENTIAL_ATTRIBUTE_VALUE,Table,Unique constraint,UQ_CREDENTIAL_ATTRIBUTE_VALUE.credential_attribute_id.user_id,"credential_attribute_id, user_id"
+dbo.CREDENTIAL_VAULT_KEY,Table,Default constraint,DF_CREDENTIAL_VAULT_KEY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CREDENTIAL_VAULT_KEY,Table,Primary key,PK_CREDENTIAL_VAULT_KEY.id,id
+dbo.CREDENTIAL_VAULT_KEY,Table,Unique constraint,UQ_CREDENTIAL_VAULT_KEY.name.tenant_uuid,"name, tenant_uuid"
+dbo.CREDENTIAL_VAULT_MESSAGE_LOG,Table,Default constraint,DF_CREDENTIAL_VAULT_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.CREDENTIAL_VAULT_MESSAGE_LOG,Table,Primary key,PK_dbo.CredentialVaultMessageLog,id
+dbo.CRREQUEST,Table,Default constraint,DF_CRREQUEST_create_cr,create_cr = ((1))
+dbo.CRREQUEST,Table,Default constraint,DF_CRREQUEST_create_iqbot,create_iqbot = ((0))
+dbo.CRREQUEST,Table,Default constraint,DF_CRREQUEST_create_sds,create_sds = ((0))
+dbo.CRREQUEST,Table,Default constraint,DF_CRREQUEST_migration_flag,migration_flag = ((0))
+dbo.CRREQUEST,Table,Primary key,PK_CRREQUEST_ID,uuid
+dbo.CRREQUEST,Table,Unique constraint,${unique_crid},crid
+dbo.CRREQUEST,Table,Unique constraint,${unique_tenant_name},tenant_name
+dbo.DASHBOARD_MESSAGE_LOG,Table,Primary key,PK_dbo.DashBoardMessageLog,id
+dbo.DATABASECHANGELOGLOCK,Table,Primary key,PK_DATABASECHANGELOGLOCK,ID
+dbo.DEPLOY_MESSAGE_LOG,Table,Default constraint,DF_DEPLOY_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.DEPLOY_MESSAGE_LOG,Table,Primary key,PK_dbo.DeployMessageLog,id
+dbo.DEPLOYMENT,Table,Default constraint,DF_DEPLOYMENT_migration,migration = ((0))
+dbo.DEPLOYMENT,Table,Foreign key,FK_DEPLOYMENTS_ENVIRONMENT_ENVIRONMENTS_UUID,dbo.ENVIRONMENT
+dbo.DEPLOYMENT,Table,Foreign key,FK_DEPLOYMENTS_OWNERORGANIZATIONID_ORGANIZATIONS_UUID,dbo.ORGANIZATION
+dbo.DEPLOYMENT,Table,Primary key,PK_DEPLOYMENT_ID,uuid
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Check constraint,CK_DEPLOYMENT_ALLOCATION_QUEUE_NULL_CHECK,([device_id] IS NOT NULL OR [pool_id] IS NOT NULL)
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Default constraint,DF_DEPLOYMENT_ALLOCATION_QUEUE_device_locked,device_locked = ((0))
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Default constraint,DF_DEPLOYMENT_ALLOCATION_QUEUE_pool_request,pool_request = ((0))
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Default constraint,DF_DEPLOYMENT_ALLOCATION_QUEUE_remaining_user_deployments,remaining_user_deployments = ((0))
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Default constraint,DF_DEPLOYMENT_ALLOCATION_QUEUE_run_type,run_type = ('UNKNOWN')
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Default constraint,DF_DEPLOYMENT_ALLOCATION_QUEUE_user_group_deployment,user_group_deployment = ((0))
+dbo.DEPLOYMENT_ALLOCATION_QUEUE,Table,Primary key,PK_DEPLOYMENT_ALLOCATION_QUEUE.id,id
+dbo.DEPLOYMENT_QUEUE,Table,Primary key,PK_DEPLOYMENT_QUEUE,id
+dbo.DEPLOYMENT_REQUEST_DETAILS,Table,Primary key,PK_DEPLOYMENT_REQUEST_DETAILS.id,id
+dbo.DEPLOYMENT_REQUEST_DETAILS,Table,Unique constraint,UQ_EXECUTION_ID,execution_id
+dbo.DEVICE_DISTRIBUTED_LOCKS,Table,Primary key,PK_DEVICE_DISTRIBUTED_LOCKS.id,id
+dbo.DEVICE_DISTRIBUTED_LOCKS,Table,Unique constraint,UQ_DEVICE_DISTRIBUTED_LOCKS_KEY_PER_TENANT,"lock_key, tenant_uuid"
+dbo.DEVICE_RUNAS_USER_USAGE,Table,Primary key,PK_Device_run_As_usage_id,user_id
+dbo.DEVICE_RUNAS_USER_USAGE,Table,Unique index,IX_job_execution_id,job_execution_id
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_associated_node,associated_node = ('')
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_bot_agent_version,bot_agent_version = ('0.0')
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_max_count,max_count = ((1))
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_resource_available,resource_available = ((1))
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.DEVICES,Table,Default constraint,DF_DEVICES_upgrade_status,upgrade_status = ('None')
+dbo.DEVICES,Table,Primary key,PK_dbo.DEVICES,id
+dbo.DEVICES_MESSAGE_LOG,Table,Default constraint,DF_DEVICES_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.DEVICES_MESSAGE_LOG,Table,Primary key,PK_dbo.DevicesMessageLog,id
+dbo.EMAIL_NOTIFICATION_MESSAGE_LOG,Table,Default constraint,DF_EMAIL_NOTIFICATION_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.EMAIL_NOTIFICATION_MESSAGE_LOG,Table,Primary key,PK_dbo.EmailNotificationMessageLog,id
+dbo.ENVIRONMENT,Table,Foreign key,FK_ENVIRONMENTS_PRODUCTDEFINITION_PRODUCTDEFINITION_UUID,dbo.PRODUCT_DEFINITION
+dbo.ENVIRONMENT,Table,Primary key,PK_ENVIRONMENT_ID,uuid
+dbo.ES_SETTINGS,Table,Primary key,PK_ES_ATTRIBUTE,attribute
+dbo.FEATURE,Table,Default constraint,DF_FEATURE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.FEATURE,Table,Foreign key,FK_FEATURE.product_id,dbo.PRODUCT
+dbo.FEATURE,Table,Primary key,PK_FEATURE.id,id
+dbo.FEATURE_ALLOTMENT,Table,Default constraint,DF_FEATURE_ALLOTMENT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.FEATURE_ALLOTMENT,Table,Foreign key,FK_FEATURE_ALLOTMENT.feature_id,dbo.FEATURE
+dbo.FEATURE_ALLOTMENT,Table,Primary key,PK_FEATURE_ALLOTMENT.id,id
+dbo.FEATURE_ALLOTMENT,Table,Unique index,UQ_FEATURE_ALLOTMENT.feature_id.user_id,"user_id, feature_id"
+dbo.FEATURE_LICENSE,Table,Default constraint,DF_FEATURE_LICENSE_burst,burst = ((0))
+dbo.FEATURE_LICENSE,Table,Default constraint,DF_FEATURE_LICENSE_consumed_by_all,consumed_by_all = ((0))
+dbo.FEATURE_LICENSE,Table,Default constraint,DF_FEATURE_LICENSE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.FEATURE_LICENSE,Table,Foreign key,FK_FEATURE_LICENSE.feature_id,dbo.FEATURE
+dbo.FEATURE_LICENSE,Table,Foreign key,FK_FEATURE_LICENSE.product_id,dbo.PRODUCT
+dbo.FEATURE_LICENSE,Table,Primary key,PK_FEATURE_LICENSE.id,id
+dbo.FF4J_AUDIT,Table,Default constraint,DF_FF4J_AUDIT_tenant_id,tenant_id = ((1))
+dbo.FF4J_AUDIT,Table,Primary key,ff4j_audit_pkey,"evt_uuid, evt_time"
+dbo.FF4J_CUSTOM_PROPERTIES,Table,Default constraint,DF_FF4J_CUSTOM_PROPERTIES_tenant_id,tenant_id = ((1))
+dbo.FF4J_CUSTOM_PROPERTIES,Table,Foreign key,ff4j_custom_properties_feat_uid_fkey,dbo.FF4J_FEATURES
+dbo.FF4J_CUSTOM_PROPERTIES,Table,Primary key,ff4j_custom_properties_pkey,"property_id, feat_uid"
+dbo.FF4J_FEATURES,Table,Default constraint,DF_FF4J_FEATURES_tenant_id,tenant_id = ((1))
+dbo.FF4J_FEATURES,Table,Primary key,ff4j_features_pkey,feat_uid
+dbo.FF4J_PROPERTIES,Table,Default constraint,DF_FF4J_PROPERTIES_tenant_id,tenant_id = ((1))
+dbo.FF4J_PROPERTIES,Table,Primary key,ff4j_properties_pkey,property_id
+dbo.FF4J_ROLES,Table,Default constraint,DF_FF4J_ROLES_tenant_id,tenant_id = ((1))
+dbo.FF4J_ROLES,Table,Foreign key,ff4j_roles_feat_uid_fkey,dbo.FF4J_FEATURES
+dbo.FF4J_ROLES,Table,Primary key,ff4j_roles_pkey,"feat_uid, role_name"
+dbo.FOLDER_ATTRIBUTES,Table,Default constraint,DF_FOLDER_ATTRIBUTES_folder_count,folder_count = ((0))
+dbo.FOLDER_ATTRIBUTES,Table,Foreign key,FK_FOLDER_ATTRIBUTES_AAFILE_FILE_ID,dbo.AAFILE
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Default constraint,DF_FOLDER_PERMISSION_CLONE_TASK_created_on,created_on = (sysdatetime())
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Default constraint,DF_FOLDER_PERMISSION_CLONE_TASK_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Default constraint,DF_FOLDER_PERMISSION_CLONE_TASK_updated_on,updated_on = (sysdatetime())
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Foreign key,FK_FOLDER_PERMISSION_CLONE_TASK_DESTINATION_ID,dbo.AAFILE
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Foreign key,FK_FOLDER_PERMISSION_CLONE_TASK_SOURCE_ID,dbo.AAFILE
+dbo.FOLDER_PERMISSION_CLONE_TASK,Table,Primary key,PK_FOLDERPERMISSIONCLONETASK,id
+dbo.GDPR_MESSAGE_LOG,Table,Primary key,PK_dbo.GdprMessageLog,id
+dbo.GDPR_REPORT,Table,Default constraint,DF_GDPR_REPORT_tenant_id,tenant_id = ((1))
+dbo.GDPR_REPORT,Table,Primary key,GDPR_REPORT_PK,id
+dbo.GDPR_REPORT_DETAILS,Table,Foreign key,FK_GDPR_REPORT_DETAILS.report_id,dbo.GDPR_REPORT
+dbo.GDPR_REPORT_DETAILS,Table,Primary key,GDPR_REPORT_DETAILS_PK,id
+dbo.GEOLOCATION_COUNTRY,Table,Primary key,PK_GeoLocation_Country,id
+dbo.GEOZONE,Table,Primary key,PK_GEOZONE_ID,uuid
+dbo.GIT_COMMIT,Table,Default constraint,DF_GIT_COMMIT_created_on,created_on = (sysdatetime())
+dbo.GIT_COMMIT,Table,Default constraint,DF_GIT_COMMIT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.GIT_COMMIT,Table,Default constraint,DF_GIT_COMMIT_updated_on,updated_on = (sysdatetime())
+dbo.GIT_COMMIT,Table,Primary key,pk_git_commit,id
+dbo.GIT_COMMIT,Table,Unique constraint,UQ_GIT_COMMIT_REVISION_TENANT,"revision, tenant_uuid"
+dbo.GLOBAL_VALUE,Table,Default constraint,DF_GLOBAL_VALUE_tenant_id,tenant_id = ((1))
+dbo.GLOBAL_VALUE,Table,Primary key,GLOBAL_VALUE_PK,id
+dbo.GLOBAL_VALUE_MESSAGE_LOG,Table,Primary key,PK_dbo.GlobalValueMessageLog,id
+dbo.HBC_QRTZ_BLOB_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_BLOB_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.HBC_QRTZ_CALENDARS,Table,Primary key,PK_HBC_QRTZ_CALENDARS,"SCHED_NAME, CALENDAR_NAME"
+dbo.HBC_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_CRON_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_CRON_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_CRON_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_CRON_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_CRON_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.HBC_QRTZ_FIRED_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_FIRED_TRIGGERS,"SCHED_NAME, ENTRY_ID"
+dbo.HBC_QRTZ_JOB_DETAILS,Table,Primary key,PK_HBC_QRTZ_JOB_DETAILS,"SCHED_NAME, JOB_NAME, JOB_GROUP"
+dbo.HBC_QRTZ_LOCKS,Table,Primary key,PK_HBC_QRTZ_LOCKS,"SCHED_NAME, LOCK_NAME"
+dbo.HBC_QRTZ_PAUSED_TRIGGER_GRPS,Table,Primary key,PK_HBC_QRTZ_PAUSED_TRIGGER_GRPS,"SCHED_NAME, TRIGGER_GROUP"
+dbo.HBC_QRTZ_SCHEDULER_STATE,Table,Primary key,PK_HBC_QRTZ_SCHEDULER_STATE,"SCHED_NAME, INSTANCE_NAME"
+dbo.HBC_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_hbc_qrtz__sim_trig_hbc_qrtz__trig},dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_hbc_qrtz__sim_trig_hbc_qrtz__trig},dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_hbc_qrtz__sim_trig_hbc_qrtz__trig},dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPLE_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_SIMPLE_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.HBC_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_SIMPROP_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_SIMPROP_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_SIMPROP_TRIGGERS_HBC_QRTZ_TRIGGERS,dbo.HBC_QRTZ_TRIGGERS
+dbo.HBC_QRTZ_SIMPROP_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_SIMPROP_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.HBC_QRTZ_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_TRIGGERS_HBC_QRTZ_JOB_DETAILS,dbo.HBC_QRTZ_JOB_DETAILS
+dbo.HBC_QRTZ_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_TRIGGERS_HBC_QRTZ_JOB_DETAILS,dbo.HBC_QRTZ_JOB_DETAILS
+dbo.HBC_QRTZ_TRIGGERS,Table,Foreign key,FK_HBC_QRTZ_TRIGGERS_HBC_QRTZ_JOB_DETAILS,dbo.HBC_QRTZ_JOB_DETAILS
+dbo.HBC_QRTZ_TRIGGERS,Table,Primary key,PK_HBC_QRTZ_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.HS_IVR_Automation_Requests,Table,Default constraint,DF__HS_IVR_Au__DateS__420DC656,DateSubmitted = (getdate())
+dbo.HS_IVR_Automation_Requests,Table,Primary key,PK_HS_IVR_Automation_Requests,RequestID
+dbo.HS_RPA_BotTransactionReport,Table,Default constraint,DF__HS_RPA_Bo__DateT__63A3C44B,DateTimeCreated = (getdate())
+dbo.HS_RPA_BotTransactionReport,Table,Primary key,PK__TRNLOG__Id,Id
+dbo.HS_RPA_BotTransactionReport1,Table,Default constraint,DF__HS_RPA_Bo__DateT__6774552F,DateTimeCreated = (getdate())
+dbo.HS_RPA_BotTransactionReport1,Table,Primary key,PK__TRNLOG__Id1,Id
+dbo.HS_RPA_ProcessInfo,Table,Primary key,PK__ProcessID,ProcessID
+dbo.HS_RPA_StatusInfo,Table,Primary key,PK__StatusId,StatusID
+dbo.HUMAN_USER,Table,Default constraint,DF_HUMAN_USER_invalid_security_qa_attempts,invalid_security_qa_attempts = ((0))
+dbo.HUMAN_USER,Table,Default constraint,DF_HUMAN_USER_reset_password_email_verified,reset_password_email_verified = ((0))
+dbo.HUMAN_USER,Table,Foreign key,FK_USER_HUMAN_USER.id,dbo.USERS
+dbo.HUMAN_USER,Table,Primary key,PK_HUMAN_USER.id,id
+dbo.HYBRID_TENANTS,Table,Primary key,PK_HYBRID_TENANTS,id
+dbo.IGNITE_CLUSTER,Table,Primary key,PK_NODE,node_id
+dbo.IGNITE_KEYS,Table,Primary key,PK__IGNITE_K__72E12F1A8D9C3CAE,name
+dbo.IQ_CUSTOM_OBJECT,Table,Default constraint,DF_IQ_CUSTOM_OBJECT_created_on,created_on = (sysdatetime())
+dbo.IQ_CUSTOM_OBJECT,Table,Default constraint,DF_IQ_CUSTOM_OBJECT_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_CUSTOM_OBJECT,Table,Default constraint,DF_IQ_CUSTOM_OBJECT_updated_on,updated_on = (sysdatetime())
+dbo.IQ_CUSTOM_OBJECT,Table,Foreign key,FK_IQ_CUSTOM_OBJECT_IQ_LEARNING_INSTANCE.uuid,dbo.IQ_LEARNING_INSTANCE
+dbo.IQ_CUSTOM_OBJECT,Table,Foreign key,FK_IQ_CUSTOM_OBJECT_IQ_VALIDATION_RULE.uuid,dbo.IQ_VALIDATION_RULE
+dbo.IQ_CUSTOM_OBJECT,Table,Primary key,PK_IQ_CUSTOM_OBJECT.id,id
+dbo.IQ_CUSTOM_OBJECT,Table,Unique constraint,UQ__IQ_CUSTO__7F4279310BEFC29D,uuid
+dbo.IQ_DOCUMENT_TYPE,Table,Primary key,PK_IQ_DOCUMENT_TYPE.id,id
+dbo.IQ_DOCUMENT_TYPE,Table,Unique constraint,UQ__IQ_DOCUM__7F427931286908BF,uuid
+dbo.IQ_DOMAIN,Table,Default constraint,DF_IQ_DOMAIN_created_on,created_on = (sysdatetime())
+dbo.IQ_DOMAIN,Table,Default constraint,DF_IQ_DOMAIN_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_DOMAIN,Table,Default constraint,DF_IQ_DOMAIN_updated_on,updated_on = (sysdatetime())
+dbo.IQ_DOMAIN,Table,Foreign key,FK_IQ_DOMAIN_IQ_DOCUMENT_TYPE.uuid,dbo.IQ_DOCUMENT_TYPE
+dbo.IQ_DOMAIN,Table,Foreign key,FK_IQ_DOMAIN_IQ_LANGUAGE.uuid,dbo.IQ_LANGUAGE
+dbo.IQ_DOMAIN,Table,Primary key,PK_IQ_DOMAIN.id,id
+dbo.IQ_DOMAIN,Table,Unique constraint,UQ__IQ_DOMAI__7F427931C0199DC2,uuid
+dbo.IQ_DOMAIN,Table,Unique constraint,UQ_IQ_DOMAIN.name,name
+dbo.IQ_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_DOMAIN_OBJECT_confidence_threshold,confidence_threshold = ((95.00))
+dbo.IQ_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_DOMAIN_OBJECT_created_on,created_on = (sysdatetime())
+dbo.IQ_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_DOMAIN_OBJECT_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_DOMAIN_OBJECT_updated_on,updated_on = (sysdatetime())
+dbo.IQ_DOMAIN_OBJECT,Table,Foreign key,FK_IQ_DOMAIN_OBJECT_IQ_DOMAIN.uuid,dbo.IQ_DOMAIN
+dbo.IQ_DOMAIN_OBJECT,Table,Foreign key,FK_IQ_DOMAIN_OBJECT_IQ_VALIDATION_RULE.uuid,dbo.IQ_VALIDATION_RULE
+dbo.IQ_DOMAIN_OBJECT,Table,Primary key,PK_IQ_DOMAIN_OBJECT.id,id
+dbo.IQ_DOMAIN_OBJECT,Table,Unique constraint,UQ__IQ_DOMAI__7F42793169E04455,uuid
+dbo.IQ_ENGINE,Table,Default constraint,DF_IQ_ENGINE_created_on,created_on = (sysdatetime())
+dbo.IQ_ENGINE,Table,Default constraint,DF_IQ_ENGINE_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_ENGINE,Table,Default constraint,DF_IQ_ENGINE_updated_on,updated_on = (sysdatetime())
+dbo.IQ_ENGINE,Table,Primary key,PK_IQ_ENGINE.id,id
+dbo.IQ_ENGINE,Table,Unique constraint,UQ__IQ_ENGIN__72E12F1B4FA8C39D,name
+dbo.IQ_ENGINE,Table,Unique constraint,UQ__IQ_ENGIN__7F4279311A9AFDA2,uuid
+dbo.IQ_ENGINE,Table,Unique constraint,UQ_IQ_ENGINE.name,name
+dbo.IQ_ENGINE_ACTION,Table,Foreign key,FK_IQ_ENGINE_ACTION_IQ_ENGINE.id,dbo.IQ_ENGINE
+dbo.IQ_ENGINE_ACTION,Table,Primary key,PK_IQ_ENGINE_ACTION,"engine_id, action_type"
+dbo.IQ_ENGINE_ACTION,Table,Unique constraint,UQ__IQ_ENGIN__7F427931EF33D8FB,uuid
+dbo.IQ_LANGUAGE,Table,Primary key,PK_IQ_LANGUAGE.id,id
+dbo.IQ_LANGUAGE,Table,Unique constraint,UQ__IQ_LANGU__7F4279315F47CBAB,uuid
+dbo.IQ_LEARNING_INSTANCE,Table,Default constraint,DF_IQ_LEARNING_INSTANCE_created_on,created_on = (sysdatetime())
+dbo.IQ_LEARNING_INSTANCE,Table,Default constraint,DF_IQ_LEARNING_INSTANCE_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_LEARNING_INSTANCE,Table,Default constraint,DF_IQ_LEARNING_INSTANCE_updated_on,updated_on = (sysdatetime())
+dbo.IQ_LEARNING_INSTANCE,Table,Foreign key,FK_IQ_LEARNING_INSTANCE_IQ_DOMAIN.uuid,dbo.IQ_DOMAIN
+dbo.IQ_LEARNING_INSTANCE,Table,Foreign key,FK_IQ_LEARNING_INSTANCE_IQ_ENGINE.uuid,dbo.IQ_ENGINE
+dbo.IQ_LEARNING_INSTANCE,Table,Primary key,PK_IQ_LEARNING_INSTANCE.id,id
+dbo.IQ_LEARNING_INSTANCE,Table,Unique constraint,UQ__IQ_LEARN__7F4279310C82C51C,uuid
+dbo.IQ_LEARNING_INSTANCE,Table,Unique constraint,UQ_IQ_LEARNING_INSTANCE.tenant_uuid.name,"name, tenant_uuid"
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_STANDARD_DOMAIN_OBJECT_created_on,created_on = (sysdatetime())
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_STANDARD_DOMAIN_OBJECT_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Default constraint,DF_IQ_STANDARD_DOMAIN_OBJECT_updated_on,updated_on = (sysdatetime())
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Foreign key,FK_IQ_STANDARD_DOMAIN_OBJECT_IQ_DOMAIN_OBJECT.uuid,dbo.IQ_DOMAIN_OBJECT
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Foreign key,FK_IQ_STANDARD_DOMAIN_OBJECT_IQ_LEARNING_INSTANCE.uuid,dbo.IQ_LEARNING_INSTANCE
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Foreign key,FK_IQ_STANDARD_DOMAIN_OBJECT_IQ_VALIDATION_RULE.uuid,dbo.IQ_VALIDATION_RULE
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Primary key,PK_IQ_STANDARD_DOMAIN_OBJECT.id,id
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Unique constraint,UQ__IQ_STAND__7F42793170B277D3,uuid
+dbo.IQ_STANDARD_DOMAIN_OBJECT,Table,Unique constraint,UQ_STANDARD_DOMAIN_OBJECT.doid.lid,"domain_object_uuid, learning_instance_uuid"
+dbo.IQ_VALIDATION_RULE,Table,Default constraint,DF_IQ_VALIDATION_RULE_created_on,created_on = (sysdatetime())
+dbo.IQ_VALIDATION_RULE,Table,Default constraint,DF_IQ_VALIDATION_RULE_tenant_uuid,tenant_uuid = ('00000000-0000-0000-0000-000000000000')
+dbo.IQ_VALIDATION_RULE,Table,Default constraint,DF_IQ_VALIDATION_RULE_updated_on,updated_on = (sysdatetime())
+dbo.IQ_VALIDATION_RULE,Table,Primary key,PK_IQ_VALIDATION_RULE.id,id
+dbo.IQ_VALIDATION_RULE,Table,Unique constraint,UQ__IQ_VALID__7F42793189F61C5E,uuid
+dbo.JOBEXECUTION_DETAILS,Table,Default constraint,DF_JOBEXECUTION_DETAILS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.JOBEXECUTION_DETAILS,Table,Foreign key,FK_JOBEXECUTION_DETAILS.job_execution_id,dbo.JOBEXECUTIONS
+dbo.JOBEXECUTION_DETAILS,Table,Primary key,PK_JOBEXECUTION_DETAILS.id,id
+dbo.JOBEXECUTIONS,Table,Default constraint,DF_JOBEXECUTIONS_is_migrated,is_migrated = ((0))
+dbo.JOBEXECUTIONS,Table,Default constraint,DF_JOBEXECUTIONS_manually_moved,manually_moved = ((0))
+dbo.JOBEXECUTIONS,Table,Default constraint,DF_JOBEXECUTIONS_schedule_id,schedule_id = ((0))
+dbo.JOBEXECUTIONS,Table,Default constraint,DF_JOBEXECUTIONS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.JOBEXECUTIONS,Table,Default constraint,DF_TaskRunDetails_IsTaskExecutionCompleted,history_action_taken = ((0))
+dbo.JOBEXECUTIONS,Table,Primary key,PK_dbo.ACTIVITY,id
+dbo.LICENSE,Table,Default constraint,DF_LICENSE_failsafe_status,failsafe_status = ((0))
+dbo.LICENSE,Table,Default constraint,DF_LICENSE_license_scheme,license_scheme = ('FLOATING')
+dbo.LICENSE,Table,Default constraint,DF_LICENSE_synced_with_ls,synced_with_ls = ((1))
+dbo.LICENSE,Table,Primary key,PK_LICENSE,id
+dbo.LICENSE,Table,Unique constraint,UQ__LICENSE__2C9D972CAE420FCF,crid
+dbo.LICENSE_FILE,Table,Default constraint,DF_LICENSE_FILE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.LICENSE_FILE,Table,Primary key,PK_LICENSE_FILE.id,id
+dbo.LICENSE_MESSAGE_LOG,Table,Default constraint,DF_LICENSE_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.LICENSE_MESSAGE_LOG,Table,Primary key,PK_dbo.LicenseMessageLog,id
+dbo.LOCKER,Table,Default constraint,DF_LOCKER_is_tenant_scoped_locker,is_tenant_scoped_locker = ((0))
+dbo.LOCKER,Table,Default constraint,DF_LOCKER_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.LOCKER,Table,Primary key,PK_LOCKER.id,id
+dbo.LOCKER,Table,Unique constraint,UQ_LOCKER.name.tenant_uuid,"name, tenant_uuid"
+dbo.MFA_MESSAGE_LOG,Table,Default constraint,DF_MFA_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.MFA_MESSAGE_LOG,Table,Primary key,PK_dbo.MFA_MESSAGE_LOG,id
+dbo.MFA_ROLE,Table,Primary key,PK_dbo.MFA_ROLE,id
+dbo.MFA_USER,Table,Primary key,PK_dbo.MFA_USER,id
+dbo.MFA_USER_TOKEN,Table,Foreign key,fk_mfa_mfa_user_id,dbo.MFA_USER
+dbo.MFA_USER_TOKEN,Table,Primary key,PK_dbo.MFA_USER_TOKEN,id
+dbo.MIGRATION,Table,Default constraint,DF_MIGRATION_is_legacy_migration,is_legacy_migration = ((0))
+dbo.MIGRATION,Table,Default constraint,DF_MIGRATION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.MIGRATION,Table,Primary key,PK_Migration,id
+dbo.MIGRATION_ACTION_MAPPING,Table,Default constraint,DF_ACTION_MAPPING_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.MIGRATION_ACTION_MAPPING,Table,Default constraint,DF_MIGRATION_ACTION_MAPPING_source_action,source_action = ('')
+dbo.MIGRATION_ACTION_MAPPING,Table,Default constraint,DF_MIGRATION_ACTION_MAPPING_source_line_number,source_line_number = ((0))
+dbo.MIGRATION_ACTION_MAPPING,Table,Primary key,action_mapping_pk,id
+dbo.MIGRATION_BOT_CREDENTIAL,Table,Default constraint,DF_MIGRATION_BOT_CREDENTIAL_destination,destination = ('')
+dbo.MIGRATION_BOT_CREDENTIAL,Table,Default constraint,DF_MIGRATION_BOT_CREDENTIAL_tenant_id,tenant_id = ((1))
+dbo.MIGRATION_BOT_CREDENTIAL,Table,Primary key,migration_bot_credential_pk,id
+dbo.MIGRATION_BOT_CREDENTIAL_ATTRIBUTE,Table,Default constraint,DF_MIGRATION_BOT_CREDENTIAL_ATTRIBUTE_tenant_id,tenant_id = ((1))
+dbo.MIGRATION_BOT_CREDENTIAL_ATTRIBUTE,Table,Primary key,migration_bot_credential_attr_pk,id
+dbo.MIGRATION_BOT_LOCKER,Table,Default constraint,DF_MIGRATION_BOT_LOCKER_tenant_id,tenant_id = ((1))
+dbo.MIGRATION_BOT_LOCKER,Table,Primary key,migration_bot_locker_pk,id
+dbo.MIGRATION_DEFAULT_GLOBAL_VALUE,Table,Default constraint,DF_MIGRATION_DEFAULT_GLOBAL_VALUE_is_gv_created,is_gv_created = ((0))
+dbo.MIGRATION_DEFAULT_GLOBAL_VALUE,Table,Default constraint,DF_MIGRATION_DEFAULT_GLOBAL_VALUE_tenant_id,tenant_id = ((1))
+dbo.MIGRATION_DEFAULT_GLOBAL_VALUE,Table,Default constraint,DF_MIGRATION_DEFAULT_GLOBAL_VALUE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.MIGRATION_DEFAULT_GLOBAL_VALUE,Table,Primary key,migration_global_value_pk,id
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_entity_migration_completed,entity_migration_completed = ((0))
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_source_path,source_path = ('')
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_source_type,source_type = ('')
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_target_name,target_name = ('')
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_target_path,target_path = ('')
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_target_type,target_type = ('')
+dbo.MIGRATION_JOURNAL,Table,Default constraint,DF_MIGRATION_JOURNAL_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.MIGRATION_JOURNAL,Table,Foreign key,FK_MIGRATION_JOURNAL_MIGRATION,dbo.MIGRATION
+dbo.MIGRATION_JOURNAL,Table,Primary key,PK_Migration_Journal,id
+dbo.MIGRATION_JSON_TO_ES_UPLOAD_DATA,Table,Default constraint,DF_MIGRATION_JSON_TO_ES_UPLOAD_DATA_tenant_id,tenant_id = ((1))
+dbo.MIGRATION_JSON_TO_ES_UPLOAD_DATA,Table,Primary key,PK_JSON_TO_ES_DATA,id
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_created_by,created_by = ((0))
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_created_on,created_on = (sysdatetime())
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_reason,reason = ('')
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_status,status = ('IN_PROGRESS')
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_updated_by,updated_by = ((0))
+dbo.MIGRATION_LEGACY_DEVICES,Table,Default constraint,DF_MIGRATION_LEGACY_DEVICES_updated_on,updated_on = (sysdatetime())
+dbo.MIGRATION_LEGACY_DEVICES,Table,Primary key,PK_DEVICES_LEGACY,id
+dbo.MIGRATION_RUNAS_USERS,Table,Primary key,PK_Migration_Runas_User,id
+dbo.OPERATIONS_ROOM_MESSAGE_LOG,Table,Default constraint,DF_OPERATIONS_ROOM_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.OPERATIONS_ROOM_MESSAGE_LOG,Table,Primary key,PK_dbo.OperationsRoomMessageLog,id
+dbo.ORGANIZATION,Table,Primary key,PK_ORGANIZATION_ID,uuid
+dbo.ORGANIZATION,Table,Unique constraint,unique_name_id,name
+dbo.ORGANIZATION,Table,Unique constraint,UNIQUE_ORGANIZATION_NAME,"name, enabled"
+dbo.ORGANIZATION_MESSAGE_LOG,Table,Primary key,PK_ORGANIZATION_MESSAGE_ID,id
+dbo.ORGANIZATIONROLE,Table,Foreign key,${fk_organizationrole_organization_organization_uuid},dbo.ORGANIZATION
+dbo.ORGANIZATIONROLE,Table,Primary key,PK_ORGANIZATIONROLE_ID,uuid
+dbo.ORGANIZATIONUSER,Table,Foreign key,${fk_organizationuser_organization_organization_uuid},dbo.ORGANIZATION
+dbo.ORGANIZATIONUSER,Table,Primary key,PK_ORGANIZATIONUSER_ID,uuid
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_author,author = ('Automation Anywhere')
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_exception_count,exception_count = ((0))
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_global,global = ((0))
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_latest,latest = ((0))
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_published_date,published_date = (sysdatetime())
+dbo.PACKAGE,Table,Default constraint,DF_PACKAGE_trigger_count,trigger_count = ((0))
+dbo.PACKAGE,Table,Primary key,PK_PACKAGE.id,id
+dbo.PACKAGE,Table,Unique constraint,UQ_PACKAGE_NAME_VERSION,"name, package_version"
+dbo.PACKAGE_DYNAMIC_RESOURCES,Table,Foreign key,FK_PACKAGE_DYNAMIC_TENANT_PACKAGES.package_id,dbo.PACKAGE
+dbo.PACKAGE_DYNAMIC_RESOURCES,Table,Primary key,PK_PACKAGE_DYNAMIC_RESOURCES.id,id
+dbo.PACKAGE_LOCALIZED_CONTENT,Table,Foreign key,FK_PACKAGE_LOCALIZED_CONTENT.package_id,dbo.PACKAGE
+dbo.PACKAGE_LOCALIZED_CONTENT,Table,Primary key,PK_PACKAGE_LOCALIZED_CONTENT.id,id
+dbo.PACKAGE_LOCALIZED_CONTENT,Table,Unique constraint,UQ_PACKAGE_LOCALIZED_CONTENT.package_id.locale,"package_id, locale"
+dbo.PACKAGE_MESSAGE_LOG,Table,Primary key,PK_PACKAGE_MESSAGE_LOG.id,id
+dbo.PACKAGE_TENANT_PACKAGES,Table,Foreign key,FK_PACKAGE_TENANT_PACKAGES.package_id,dbo.PACKAGE
+dbo.PACKAGE_TENANT_PACKAGES,Table,Primary key,PK_PACKAGE_TENANT_PACKAGES.id,id
+dbo.PACKAGE_TENANT_PACKAGES,Table,Unique constraint,UQ_PACKAGE_TENANT_PACKAGES.package_id.tenant_uuid,"package_id, tenant_uuid"
+dbo.PASSWORD_SECURITY_INFO,Table,Default constraint,DF_PASSWORD_SECURITY_INFO_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PASSWORD_SECURITY_INFO,Table,Primary key,PK_PASSWORD_SECURITY_INFO.id,id
+dbo.PD_QRTZ_BLOB_TRIGGERS,Table,Primary key,PK_PD_QRTZ_BLOB_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.PD_QRTZ_CALENDARS,Table,Primary key,PK_PD_QRTZ_CALENDARS,"SCHED_NAME, CALENDAR_NAME"
+dbo.PD_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_CRON_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_CRON_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_CRON_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_CRON_TRIGGERS,Table,Primary key,PK_PD_QRTZ_CRON_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.PD_QRTZ_FIRED_TRIGGERS,Table,Primary key,PK_PD_QRTZ_FIRED_TRIGGERS,"SCHED_NAME, ENTRY_ID"
+dbo.PD_QRTZ_JOB_DETAILS,Table,Primary key,PK_PD_QRTZ_JOB_DETAILS,"SCHED_NAME, JOB_NAME, JOB_GROUP"
+dbo.PD_QRTZ_LOCKS,Table,Primary key,PK_PD_QRTZ_LOCKS,"SCHED_NAME, LOCK_NAME"
+dbo.PD_QRTZ_PAUSED_TRIGGER_GRPS,Table,Primary key,PK_PD_QRTZ_PAUSED_TRIGGER_GRPS,"SCHED_NAME, TRIGGER_GROUP"
+dbo.PD_QRTZ_SCHEDULER_STATE,Table,Primary key,PK_PD_QRTZ_SCHEDULER_STATE,"SCHED_NAME, INSTANCE_NAME"
+dbo.PD_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_pd_qrtz__sim_trig_pd_qrtz__trig},dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_pd_qrtz__sim_trig_pd_qrtz__trig},dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_pd_qrtz__sim_trig_pd_qrtz__trig},dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPLE_TRIGGERS,Table,Primary key,PK_PD_QRTZ_SIMPLE_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.PD_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_SIMPROP_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_SIMPROP_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_SIMPROP_TRIGGERS_PD_QRTZ_TRIGGERS,dbo.PD_QRTZ_TRIGGERS
+dbo.PD_QRTZ_SIMPROP_TRIGGERS,Table,Primary key,PK_PD_QRTZ_SIMPROP_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.PD_QRTZ_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_TRIGGERS_PD_QRTZ_JOB_DETAILS,dbo.PD_QRTZ_JOB_DETAILS
+dbo.PD_QRTZ_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_TRIGGERS_PD_QRTZ_JOB_DETAILS,dbo.PD_QRTZ_JOB_DETAILS
+dbo.PD_QRTZ_TRIGGERS,Table,Foreign key,FK_PD_QRTZ_TRIGGERS_PD_QRTZ_JOB_DETAILS,dbo.PD_QRTZ_JOB_DETAILS
+dbo.PD_QRTZ_TRIGGERS,Table,Primary key,PK_PD_QRTZ_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.PERMISSION,Table,Default constraint,DF_PERMISSION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PERMISSION,Table,Primary key,PK_Permission,id
+dbo.PERMISSION,Table,Unique index,UQ_PERMISSIONS,"action, resource_id, resource_type, tenant_uuid"
+dbo.POOL_DEVICES,Table,Foreign key,FK_PoolDevices_DEVICES,dbo.DEVICES
+dbo.POOL_DEVICES,Table,Foreign key,FK_PoolDevices_Pools,dbo.POOLS
+dbo.POOL_DEVICES,Table,Primary key,PK_PoolDevices,Id
+dbo.POOLS,Table,Default constraint,DF_POOLS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.POOLS,Table,Primary key,PK_Pools,Id
+dbo.POOLS,Table,Unique constraint,UQ_POOL_NAME_PER_TENANT,"name, tenant_uuid"
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_fingerprint_model,fingerprint_model = ('EASY')
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_is_data_included,is_data_included = ((0))
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_is_description_included,is_description_included = ((0))
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_sgv_preference,sgv_preference = ('BRANCHES')
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Foreign key,FK_PROCESS_DISCOVERY_AGGREGATED_RECORDING_TO_PROCESS.id,dbo.PROCESS_DISCOVERY_PROCESS
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING,Table,Primary key,PK_PROCESS_DISCOVERY_AGGREGATED_RECORDING.id,id
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT,Table,Foreign key,FK_PROCESS_DISCOVERY_AGGREGATED_RECORDING.id,dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_BOT,Table,Primary key,PK_PROCESS_DISCOVERY_AGGREGATED_BOT.id,id
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS,Table,Default constraint,DF_PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS,Table,Foreign key,FK2_PROCESS_DISCOVERY_AGGREGATED_RECORDING.id,dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING
+dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING_FILTERS,Table,Primary key,PK_PROCESS_DISCOVERY_AGGREGATED_FILTERS.id,id
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_EXPORT_OPPORTUNITY_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_EXPORT_OPPORTUNITY_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_EXPORT_OPPORTUNITY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_EXPORT_OPPORTUNITY_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Foreign key,FK1_PROCESS_DISCOVERY_AGGREGATED_RECORDING.id,dbo.PROCESS_DISCOVERY_AGGREGATED_RECORDING
+dbo.PROCESS_DISCOVERY_EXPORT_OPPORTUNITY,Table,Primary key,PK_PROCESS_DISCOVERY_EXPORT_OPPORTUNITY.id,id
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_migrated,migrated = ((0))
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Foreign key,FK_PROCESS_DISCOVERY_OPPORTUNITY_PROCESS.id,dbo.PROCESS_DISCOVERY_PROCESS
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Foreign key,FK_PROCESS_DISCOVERY_RECORDING.id,dbo.PROCESS_DISCOVERY_RECORDING
+dbo.PROCESS_DISCOVERY_OPPORTUNITY,Table,Primary key,PK_PROCESS_DISCOVERY_OPPORTUNITY.id,id
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_STEP_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_STEP_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_STEP_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_OPPORTUNITY_STEP_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Foreign key,FK_PROCESS_DISCOVERY_OPPORTUNITY.id,dbo.PROCESS_DISCOVERY_OPPORTUNITY
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Foreign key,FK_PROCESS_DISCOVERY_OPPORTUNITY_RECORDING_STEP.id,dbo.PROCESS_DISCOVERY_RECORDING_STEP
+dbo.PROCESS_DISCOVERY_OPPORTUNITY_STEP,Table,Primary key,PK_PROCESS_DISCOVERY_OPPORTUNITY_STEP.id,id
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Foreign key,FK_PROCESS_DISCOVERY_PROJECT.id,dbo.PROCESS_DISCOVERY_PROJECT
+dbo.PROCESS_DISCOVERY_PROCESS,Table,Primary key,PK_PROCESS_DISCOVERY_PROCESS.id,id
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Foreign key,FK_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT.id,dbo.PROCESS_DISCOVERY_PROCESS
+dbo.PROCESS_DISCOVERY_PROCESS_ASSIGNMENT,Table,Primary key,PK_PROCESS_DISCOVERY_PROCESS_ASSIGNMENT.id,id
+dbo.PROCESS_DISCOVERY_PROJECT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROJECT_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROJECT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROJECT_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_PROJECT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROJECT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_PROJECT,Table,Default constraint,DF_PROCESS_DISCOVERY_PROJECT_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_PROJECT,Table,Primary key,PK_PROCESS_DISCOVERY_PROJECT.id,id
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Foreign key,FK_PROCESS_DISCOVERY_PROCESS_RECORDING.id,dbo.PROCESS_DISCOVERY_PROCESS
+dbo.PROCESS_DISCOVERY_RECORDING,Table,Primary key,PK_PROCESS_DISCOVERY_RECORDING.id,id
+dbo.PROCESS_DISCOVERY_RECORDING_ATTRIBUTES,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_ATTRIBUTES_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_ATTRIBUTES,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_ATTRIBUTES_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_RECORDING_ATTRIBUTES,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_ATTRIBUTES_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_ATTRIBUTES,Table,Foreign key,FK_PROCESS_DISCOVERY_RECORDING_STEP.step_key,dbo.PROCESS_DISCOVERY_RECORDING_STEP
+dbo.PROCESS_DISCOVERY_RECORDING_ATTRIBUTES,Table,Primary key,PK_PROCESS_DISCOVERY_RECORDING_ATTRIBUTES.id,id
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Foreign key,FK_PROCESS_DISCOVERY_RECORDING_MAIN.id,dbo.PROCESS_DISCOVERY_RECORDING
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Primary key,PK_PROCESS_DISCOVERY_RECORDING_STEP.id,id
+dbo.PROCESS_DISCOVERY_RECORDING_STEP,Table,Unique constraint,UI_PROCESS_DISCOVERY_RECORDING_STEP.step_unique_key,step_unique_key
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_METADATA_created_on,created_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_METADATA_is_deleted,is_deleted = ((0))
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_METADATA_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Default constraint,DF_PROCESS_DISCOVERY_RECORDING_STEP_METADATA_updated_on,updated_on = (sysdatetime())
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Foreign key,FK_PROCESS_DISCOVERY_RECORDING_STEP.step_unique_key,dbo.PROCESS_DISCOVERY_RECORDING_STEP
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Primary key,PK_PROCESS_DISCOVERY_RECORDING_STEP_METADATA.id,id
+dbo.PROCESS_DISCOVERY_RECORDING_STEP_METADATA,Table,Unique index,IX_PROCESS_DISCOVERY_RECORDING_STEP_METADATA.step_key_type,"step_unique_key, type"
+dbo.PRODUCT,Table,Default constraint,DF_PRODUCT_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PRODUCT,Table,Primary key,PK_PRODUCT.id,id
+dbo.PRODUCT_DEFINITION,Table,Foreign key,FK_PRODUCTDEFINITIONS_GEOZONE_GEOZONES_UUID,dbo.GEOZONE
+dbo.PRODUCT_DEFINITION,Table,Primary key,PK_PRODUCT_DEFINITION_ID,uuid
+dbo.PRODUCT_METRICS,Table,Default constraint,DF_PRODUCT_METRICS_consumed_count,consumed_count = ((0))
+dbo.PRODUCT_METRICS,Table,Default constraint,DF_PRODUCT_METRICS_purchased_count,purchased_count = ((0))
+dbo.PRODUCT_METRICS,Table,Foreign key,FK_PRODUCT_METRICS.product_id,dbo.PRODUCT
+dbo.PRODUCT_METRICS,Table,Primary key,PK_PRODUCT_METRICS,id
+dbo.PROXY_MESSAGE_LOG,Table,Default constraint,DF_PROXY_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.PROXY_MESSAGE_LOG,Table,Primary key,PK_dbo.ProxyMessageLog,id
+dbo.QRTZ_BLOB_TRIGGERS,Table,Primary key,PK_QRTZ_BLOB_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.QRTZ_CALENDARS,Table,Primary key,PK_QRTZ_CALENDARS,"SCHED_NAME, CALENDAR_NAME"
+dbo.QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_QRTZ_CRON_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_QRTZ_CRON_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_CRON_TRIGGERS,Table,Foreign key,FK_QRTZ_CRON_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_CRON_TRIGGERS,Table,Primary key,PK_QRTZ_CRON_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.QRTZ_FIRED_TRIGGERS,Table,Primary key,PK_QRTZ_FIRED_TRIGGERS,"SCHED_NAME, ENTRY_ID"
+dbo.QRTZ_JOB_DETAILS,Table,Primary key,PK_QRTZ_JOB_DETAILS,"SCHED_NAME, JOB_NAME, JOB_GROUP"
+dbo.QRTZ_LOCKS,Table,Primary key,PK_QRTZ_LOCKS,"SCHED_NAME, LOCK_NAME"
+dbo.QRTZ_PAUSED_TRIGGER_GRPS,Table,Primary key,PK_QRTZ_PAUSED_TRIGGER_GRPS,"SCHED_NAME, TRIGGER_GROUP"
+dbo.QRTZ_SCHEDULER_STATE,Table,Primary key,PK_QRTZ_SCHEDULER_STATE,"SCHED_NAME, INSTANCE_NAME"
+dbo.QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_qrtz_sim_trig_qrtz_trig},dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_qrtz_sim_trig_qrtz_trig},dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPLE_TRIGGERS,Table,Foreign key,${fk_qrtz_sim_trig_qrtz_trig},dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPLE_TRIGGERS,Table,Primary key,PK_QRTZ_SIMPLE_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_QRTZ_SIMPROP_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_QRTZ_SIMPROP_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPROP_TRIGGERS,Table,Foreign key,FK_QRTZ_SIMPROP_TRIGGERS_QRTZ_TRIGGERS,dbo.QRTZ_TRIGGERS
+dbo.QRTZ_SIMPROP_TRIGGERS,Table,Primary key,PK_QRTZ_SIMPROP_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.QRTZ_TRIGGERS,Table,Foreign key,FK_QRTZ_TRIGGERS_QRTZ_JOB_DETAILS,dbo.QRTZ_JOB_DETAILS
+dbo.QRTZ_TRIGGERS,Table,Foreign key,FK_QRTZ_TRIGGERS_QRTZ_JOB_DETAILS,dbo.QRTZ_JOB_DETAILS
+dbo.QRTZ_TRIGGERS,Table,Foreign key,FK_QRTZ_TRIGGERS_QRTZ_JOB_DETAILS,dbo.QRTZ_JOB_DETAILS
+dbo.QRTZ_TRIGGERS,Table,Primary key,PK_QRTZ_TRIGGERS,"SCHED_NAME, TRIGGER_NAME, TRIGGER_GROUP"
+dbo.QUEUE_DISPLAY_COLUMNS,Table,Foreign key,FK_QueueDiplayColumns_Columns,dbo.WORKITEM_MODEL_ATTRIBUTES
+dbo.QUEUE_DISPLAY_COLUMNS,Table,Foreign key,FK_QueueDiplayColumns_QUEUES,dbo.QUEUES
+dbo.QUEUE_DISPLAY_COLUMNS,Table,Primary key,PK_QueueDisplayColumns,Id
+dbo.QUEUES,Table,Default constraint,DF_QUEUES_con_reactivation_threshold,con_reactivation_threshold = ((1))
+dbo.QUEUES,Table,Default constraint,DF_QUEUES_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.QUEUES,Table,Foreign key,FK_Queues_Model,dbo.WORKITEM_MODELS
+dbo.QUEUES,Table,Primary key,PK_Queue,id
+dbo.QUEUES,Table,Unique constraint,UQ_QUEUE_name,"name, tenant_uuid"
+dbo.REQUEST_STATUS,Table,Default constraint,DF_REQUEST_STATUS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.REQUEST_STATUS,Table,Primary key,PK_request_id,request_id
+dbo.REQUEST_STATUS_DETAILS,Table,Foreign key,FK_request_status_details,dbo.REQUEST_STATUS
+dbo.REQUEST_STATUS_DETAILS,Table,Primary key,PK_request_status_details,"request_id, attribute"
+dbo.RIW_ORCHESTRATION_JOB,Table,Default constraint,DF_RIW_ORCHESTRATION_JOB_created_on,created_on = (sysdatetime())
+dbo.RIW_ORCHESTRATION_JOB,Table,Default constraint,DF_RIW_ORCHESTRATION_JOB_is_deleted,is_deleted = ((0))
+dbo.RIW_ORCHESTRATION_JOB,Table,Default constraint,DF_RIW_ORCHESTRATION_JOB_selected_run_as_id,selected_run_as_id = ((-1))
+dbo.RIW_ORCHESTRATION_JOB,Table,Default constraint,DF_RIW_ORCHESTRATION_JOB_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_ORCHESTRATION_JOB,Table,Default constraint,DF_RIW_ORCHESTRATION_JOB_updated_on,updated_on = (sysdatetime())
+dbo.RIW_ORCHESTRATION_JOB,Table,Primary key,PK_RIW_ORCHESTRATION_JOB,id
+dbo.RIW_ORCHESTRATION_JOB,Table,Unique constraint,UQ_RIW_ORCHESTRATION_JOB.request_id,request_id
+dbo.RIW_ORCHESTRATION_JOB,Table,Unique constraint,UQ_RIW_ORCHESTRATION_JOB.request_id.tenant_uuid.deployment_id,"request_id, deployment_id, tenant_uuid"
+dbo.RIW_POOL_CONFIGURATION,Table,Default constraint,DF_RIW_POOL_CONFIGURATION_created_on,created_on = (sysdatetime())
+dbo.RIW_POOL_CONFIGURATION,Table,Default constraint,DF_RIW_POOL_CONFIGURATION_is_default,is_default = ((0))
+dbo.RIW_POOL_CONFIGURATION,Table,Default constraint,DF_RIW_POOL_CONFIGURATION_is_deleted,is_deleted = ((0))
+dbo.RIW_POOL_CONFIGURATION,Table,Default constraint,DF_RIW_POOL_CONFIGURATION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_POOL_CONFIGURATION,Table,Default constraint,DF_RIW_POOL_CONFIGURATION_updated_on,updated_on = (sysdatetime())
+dbo.RIW_POOL_CONFIGURATION,Table,Primary key,PK_RIW_POOL_CONFIGURATION,id
+dbo.RIW_PROCESS,Table,Default constraint,DF_RIW_PROCESS_created_on,created_on = (sysdatetime())
+dbo.RIW_PROCESS,Table,Default constraint,DF_RIW_PROCESS_disabled,disabled = ((0))
+dbo.RIW_PROCESS,Table,Default constraint,DF_RIW_PROCESS_is_deleted,is_deleted = ((0))
+dbo.RIW_PROCESS,Table,Default constraint,DF_RIW_PROCESS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_PROCESS,Table,Default constraint,DF_RIW_PROCESS_updated_on,updated_on = (sysdatetime())
+dbo.RIW_PROCESS,Table,Foreign key,FK_RIW_PROCESS.process_info_id,dbo.RIW_PROCESS_INFO
+dbo.RIW_PROCESS,Table,Primary key,PK_RIW_PROCESS,id
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_created_on,created_on = (sysdatetime())
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_hidden,hidden = ((0))
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_is_deleted,is_deleted = ((0))
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_pool_config_id,pool_config_id = ((0))
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_scheduler_config_id,scheduler_config_id = ((0))
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_PROCESS_INFO,Table,Default constraint,DF_RIW_PROCESS_INFO_updated_on,updated_on = (sysdatetime())
+dbo.RIW_PROCESS_INFO,Table,Foreign key,FK_RIW_PROCESS_INFO.current_process_id,dbo.RIW_PROCESS
+dbo.RIW_PROCESS_INFO,Table,Primary key,PK_RIW_PROCESS_INFO,id
+dbo.RIW_PROCESS_USER_MANAGER,Table,Foreign key,FK_RIW_PROCESS_USER_MANAGER.process_id,dbo.RIW_PROCESS_INFO
+dbo.RIW_PROCESS_USER_MANAGER,Table,Primary key,PK_RIW_PROCESS_USER_MANAGER,"process_info_id, user_id"
+dbo.RIW_REQUEST,Table,Default constraint,DF_RIW_REQUEST_created_on,created_on = (sysdatetime())
+dbo.RIW_REQUEST,Table,Default constraint,DF_RIW_REQUEST_is_deleted,is_deleted = ((0))
+dbo.RIW_REQUEST,Table,Default constraint,DF_RIW_REQUEST_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_REQUEST,Table,Default constraint,DF_RIW_REQUEST_updated_on,updated_on = (sysdatetime())
+dbo.RIW_REQUEST,Table,Foreign key,FK_RIW_REQUEST.process_id,dbo.RIW_PROCESS
+dbo.RIW_REQUEST,Table,Primary key,PK_RIW_REQUEST,id
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Default constraint,DF_RIW_SCHEDULER_CONFIGURATION_created_on,created_on = (sysdatetime())
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Default constraint,DF_RIW_SCHEDULER_CONFIGURATION_is_default,is_default = ((0))
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Default constraint,DF_RIW_SCHEDULER_CONFIGURATION_is_deleted,is_deleted = ((0))
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Default constraint,DF_RIW_SCHEDULER_CONFIGURATION_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Default constraint,DF_RIW_SCHEDULER_CONFIGURATION_updated_on,updated_on = (sysdatetime())
+dbo.RIW_SCHEDULER_CONFIGURATION,Table,Primary key,PK_RIW_SCHEDULER_CONFIGURATION,id
+dbo.RIW_STEP,Table,Default constraint,DF_RIW_STEP_created_on,created_on = (sysdatetime())
+dbo.RIW_STEP,Table,Default constraint,DF_RIW_STEP_is_deleted,is_deleted = ((0))
+dbo.RIW_STEP,Table,Default constraint,DF_RIW_STEP_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_STEP,Table,Default constraint,DF_RIW_STEP_updated_on,updated_on = (sysdatetime())
+dbo.RIW_STEP,Table,Foreign key,FK_RIW_STEP.process_id,dbo.RIW_PROCESS
+dbo.RIW_STEP,Table,Primary key,PK_RIW_STEP,id
+dbo.RIW_STEP_RECORD,Table,Default constraint,DF_RIW_STEP_RECORD_created_on,created_on = (sysdatetime())
+dbo.RIW_STEP_RECORD,Table,Default constraint,DF_RIW_STEP_RECORD_is_deleted,is_deleted = ((0))
+dbo.RIW_STEP_RECORD,Table,Default constraint,DF_RIW_STEP_RECORD_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_STEP_RECORD,Table,Default constraint,DF_RIW_STEP_RECORD_updated_on,updated_on = (sysdatetime())
+dbo.RIW_STEP_RECORD,Table,Foreign key,FK_RIW_STEP_RECORD.request_id,dbo.RIW_REQUEST
+dbo.RIW_STEP_RECORD,Table,Primary key,PK_RIW_STEP_RECORD,id
+dbo.RIW_TEAM,Table,Default constraint,DF_RIW_TEAM_created_on,created_on = (sysdatetime())
+dbo.RIW_TEAM,Table,Default constraint,DF_RIW_TEAM_is_deleted,is_deleted = ((0))
+dbo.RIW_TEAM,Table,Default constraint,DF_RIW_TEAM_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.RIW_TEAM,Table,Default constraint,DF_RIW_TEAM_updated_on,updated_on = (sysdatetime())
+dbo.RIW_TEAM,Table,Primary key,PK_RIW_TEAM,id
+dbo.RIW_TEAM_PROCESS,Table,Foreign key,FK_RIW_TEAM_PROCESS.process_id,dbo.RIW_PROCESS_INFO
+dbo.RIW_TEAM_PROCESS,Table,Foreign key,FK_RIW_TEAM_PROCESS.team_id,dbo.RIW_TEAM
+dbo.RIW_TEAM_PROCESS,Table,Primary key,PK_RIW_TEAM_PROCESS,"team_id, process_info_id"
+dbo.RIW_TEAM_USER,Table,Foreign key,FK_RIW_TEAM_USER.team_id,dbo.RIW_TEAM
+dbo.RIW_TEAM_USER,Table,Primary key,PK_RIW_TEAM_USER,"team_id, user_id"
+dbo.ROLE,Table,Default constraint,DF_ROLE_is_system_role,is_system_role = ((0))
+dbo.ROLE,Table,Default constraint,DF_ROLE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.ROLE,Table,Primary key,PK_Role,id
+dbo.ROLE,Table,Unique constraint,UQ.name.tenant_uuid,"name, tenant_uuid"
+dbo.ROLE_PERMISSION,Table,Foreign key,FK_RP_PERMISSION.id,dbo.PERMISSION
+dbo.ROLE_PERMISSION,Table,Foreign key,FK_RP_ROLE.id,dbo.ROLE
+dbo.ROLE_PERMISSION,Table,Unique constraint,UK_ROLE_PERMISSION,"role_id, permission_id"
+dbo.RUNAS_USER_DEFAULT_DEVICE,Table,Primary key,PK_ranas_user_default_Device,user_id
+dbo.SCHEDULE_MESSAGE_LOG,Table,Default constraint,DF_SCHEDULE_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.SCHEDULE_MESSAGE_LOG,Table,Primary key,PK_dbo.ScheduleMessageLog,id
+dbo.SERVER_REPOSITORY_MESSAGE_LOG,Table,Default constraint,DF_SERVER_REPOSITORY_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.SERVER_REPOSITORY_MESSAGE_LOG,Table,Primary key,PK_dbo.ServerRepositoryMessageLog,id
+dbo.SERVICE_USER,Table,Foreign key,FK_USER_APP_USER.id,dbo.USERS
+dbo.SERVICE_USER,Table,Primary key,PK_APP_USER.id,id
+dbo.SETTINGS_MESSAGE_LOG,Table,Default constraint,DF_SETTINGS_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.SETTINGS_MESSAGE_LOG,Table,Primary key,PK_dbo.SettingsMessageLog,id
+dbo.SLA,Table,Foreign key,FK_SLAS_ORGANIZATION_ORGANIZATIONS_UUID,dbo.ORGANIZATION
+dbo.SLA,Table,Primary key,PK_SLA_ID,uuid
+dbo.SLAMETRIC,Table,Foreign key,FK_SLAMETRICS_AGREEMENT_SLAS_UUID,dbo.SLA
+dbo.SLAMETRIC,Table,Primary key,PK_SLAMETRIC_ID,uuid
+dbo.TENANCY,Table,Foreign key,FK_TENANCIES_DEPLOYMENT_DEPLOYMENTS_UUID,dbo.DEPLOYMENT
+dbo.TENANCY,Table,Foreign key,FK_TENANCIES_OWNERORGANIZATION_ORGANIZATIONS_UUID,dbo.ORGANIZATION
+dbo.TENANCY,Table,Primary key,PK_TENANCY_ID,uuid
+dbo.TENANT_MESSAGE_LOG,Table,Primary key,PK_dbo.TenantMessageLog,id
+dbo.TENANTS,Table,Default constraint,DF_TENANTS_enabled,enabled = ((1))
+dbo.TENANTS,Table,Foreign key,FK_HYBRID_TENANT.id,dbo.HYBRID_TENANTS
+dbo.TENANTS,Table,Primary key,pk_tenant_uuid,uuid
+dbo.TENANTS,Table,Unique constraint,UQ_tenant_name,name
+dbo.TENANTS_DATA_DELETE_STATS,Table,Default constraint,DF_TENANTS_DATA_DELETE_STATS_tenant_id,tenant_id = ((1))
+dbo.TENANTS_DATA_DELETE_STATS,Table,Primary key,tenant_data_delete_stats_pk,id
+dbo.TRIGGER_REQUEST,Table,Default constraint,DF_TRIGGER_REQUEST_disabled,disabled = ((0))
+dbo.TRIGGER_REQUEST,Table,Primary key,PK_TRIGGER.id,id
+dbo.TRIGGER_REQUEST,Table,Unique constraint,UQ_TRIGGER_REQUEST,"uid, request_id, user_id"
+dbo.UPGRADE_MESSAGE_LOG,Table,Default constraint,DF_UPGRADE_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.UPGRADE_MESSAGE_LOG,Table,Primary key,PK_dbo.UpgradeMessageLog,id
+dbo.USER_EMAIL_TOKEN,Table,Default constraint,DF_USER_EMAIL_TOKEN_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.USER_EMAIL_TOKEN,Table,Primary key,PK_UserEmailTokens,id
+dbo.USER_EMAIL_TOKEN,Table,Unique constraint,UQ__USER_EMA__87DF1EFF0ECB5EB0,"user_id, token_type, token"
+dbo.USER_MANAGEMENT_MESSAGE_LOG,Table,Default constraint,DF_USER_MANAGEMENT_MESSAGE_LOG_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.USER_MANAGEMENT_MESSAGE_LOG,Table,Primary key,PK_dbo.UserManagementMessageLog,id
+dbo.USER_PERMISSION,Table,Foreign key,FK_UP_USER.id,dbo.USERS
+dbo.USER_PERMISSION,Table,Foreign key,FK_USER_PERMISSION.id,dbo.PERMISSION
+dbo.USER_PERMISSION,Table,Primary key,PK__USER_PER__07ED06A00B354FFD,"user_id, permission_id"
+dbo.USER_QUESTION_ANSWER,Table,Default constraint,DF_USER_QUESTION_ANSWER_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.USER_QUESTION_ANSWER,Table,Foreign key,FK_USER_QUESTION_ANSWER_USER.id,dbo.USERS
+dbo.USER_QUESTION_ANSWER,Table,Primary key,PK_QuestionAnswer,id
+dbo.USER_ROLE,Table,Foreign key,FK_UR_USER.id,dbo.USERS
+dbo.USER_ROLE,Table,Foreign key,FK_USER_ROLE.id,dbo.ROLE
+dbo.USER_SPECIFIC_CREDENTIALS,Table,Default constraint,DF_USER_SPECIFIC_CREDENTIALS_tenant_id,tenant_id = ((1))
+dbo.USER_SPECIFIC_CREDENTIALS,Table,Primary key,USER_SPECIFIC_CREDENTIALS_PK,id
+dbo.USER_SPECIFIC_CREDENTIALS,Table,Unique constraint,uq_name_userid,"name, user_id, tenant_uuid"
+dbo.USERS,Table,Default constraint,DF_USERS_disabled,disabled = ((0))
+dbo.USERS,Table,Default constraint,DF_USERS_fail_login_attempts,fail_login_attempts = ((0))
+dbo.USERS,Table,Default constraint,DF_USERS_is_deleted,is_deleted = ((0))
+dbo.USERS,Table,Primary key,PK_User,id
+dbo.VCS_REPOSITORY,Table,Default constraint,DF_VCS_REPOSITORY_created_on,created_on = (sysdatetime())
+dbo.VCS_REPOSITORY,Table,Default constraint,DF_VCS_REPOSITORY_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.VCS_REPOSITORY,Table,Default constraint,DF_VCS_REPOSITORY_updated_on,updated_on = (sysdatetime())
+dbo.VCS_REPOSITORY,Table,Primary key,PK_VCS_REPOSITORY,id
+dbo.VCS_SYNC_PROCESS,Table,Default constraint,DF_VCS_SYNC_PROCESS_created_on,created_on = (sysdatetime())
+dbo.VCS_SYNC_PROCESS,Table,Default constraint,DF_VCS_SYNC_PROCESS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.VCS_SYNC_PROCESS,Table,Default constraint,DF_VCS_SYNC_PROCESS_updated_on,updated_on = (sysdatetime())
+dbo.VCS_SYNC_PROCESS,Table,Primary key,PK_VCS_SYNC_PROCESS,id
+dbo.VCS_SYNC_TASKS,Table,Default constraint,DF_VCS_SYNC_TASKS_created_on,created_on = (sysdatetime())
+dbo.VCS_SYNC_TASKS,Table,Default constraint,DF_VCS_SYNC_TASKS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.VCS_SYNC_TASKS,Table,Default constraint,DF_VCS_SYNC_TASKS_updated_on,updated_on = (sysdatetime())
+dbo.VCS_SYNC_TASKS,Table,Primary key,PK_VCS_SYNC_TASKS,id
+dbo.WLM_AUTOMATION_RUNAS_USER,Table,Foreign key,fk_user_runas_id,dbo.USERS
+dbo.WLM_AUTOMATION_RUNAS_USER,Table,Foreign key,fk_wlm_automation_runas_user,dbo.WLM_AUTOMATIONS
+dbo.WLM_AUTOMATION_RUNAS_USER,Table,Primary key,PK_Wlm_Automation_Runas_User,id
+dbo.WLM_AUTOMATIONS,Table,Default constraint,DF_WLM_AUTOMATIONS_default_devices,default_devices = ((0))
+dbo.WLM_AUTOMATIONS,Table,Primary key,PK_WLM_Automations,id
+dbo.WLM_JOB_LOCK,Table,Primary key,PK_WLM_JOB_LOCK,ID
+dbo.WLM_MESSAGE_LOG,Table,Primary key,PK_dbo.WlmMessageLog,id
+dbo.WORKITEM_MODEL_ATTRIBUTES,Table,Default constraint,DF_WORKITEM_MODEL_ATTRIBUTES_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKITEM_MODEL_ATTRIBUTES,Table,Foreign key,FK_QueueModel_Attribute,dbo.WORKITEM_MODELS
+dbo.WORKITEM_MODEL_ATTRIBUTES,Table,Primary key,PK_QueueModelAttribute,id
+dbo.WORKITEM_MODEL_ATTRIBUTES,Table,Unique constraint,UQ_WORKITEM_ATTRIB_name,"name, queue_model_id, tenant_uuid"
+dbo.WORKITEM_MODELS,Table,Default constraint,DF_WORKITEM_MODELS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKITEM_MODELS,Table,Primary key,PK_QueueModel,id
+dbo.WORKITEM_MODELS,Table,Unique constraint,UQ_WORKITEM_MODEL_name,"name, tenant_uuid"
+dbo.WORKITEM_PROCESSING_ORDERS,Table,Default constraint,DF_WORKITEM_PROCESSING_ORDERS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKITEM_PROCESSING_ORDERS,Table,Foreign key,FK_WorkitemProcessingOrders_Queues,dbo.QUEUES
+dbo.WORKITEM_PROCESSING_ORDERS,Table,Primary key,PK_WorkItemProcessingOrders,id
+dbo.WORKITEM_STATS,Table,Default constraint,DF_WORKITEM_STATS_pool_name,pool_name = ('NONAME_POOL')
+dbo.WORKITEM_STATS,Table,Default constraint,DF_WORKITEM_STATS_queue_name,queue_name = ('NONAME_QUEUE')
+dbo.WORKITEM_STATS,Table,Default constraint,DF_WORKITEM_STATS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKITEM_STATS,Table,Default constraint,DF_WORKITEM_STATS_total_failed_work_item_count,total_failed_work_item_count = ((0))
+dbo.WORKITEM_STATS,Table,Foreign key,fk_queues_workitem_stats,dbo.QUEUES
+dbo.WORKITEM_STATS,Table,Primary key,PK_POOL_WORKITEMS_STATS,id
+dbo.WORKITEMS,Table,Default constraint,DF_WORKITEMS_computed_status,computed_status = ((3))
+dbo.WORKITEMS,Table,Default constraint,DF_WORKITEMS_priority,priority = ((0))
+dbo.WORKITEMS,Table,Default constraint,DF_WORKITEMS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKITEMS,Table,Default constraint,DF_WORKITEMS_total_paused_time,total_paused_time = ((0))
+dbo.WORKITEMS,Table,Foreign key,FK_WORK_ORDER_ITEM,dbo.WORKORDERS
+dbo.WORKITEMS,Table,Foreign key,FK_WorkItems_Queues1,dbo.QUEUES
+dbo.WORKITEMS,Table,Primary key,PK_WorkItems,id
+dbo.WORKORDERS,Table,Default constraint,DF_WORKORDERS_next_index,next_index = ((1))
+dbo.WORKORDERS,Table,Default constraint,DF_WORKORDERS_processing_nodes_count,processing_nodes_count = ((0))
+dbo.WORKORDERS,Table,Default constraint,DF_WORKORDERS_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKORDERS,Table,Primary key,PK_WorkOrders,id
+dbo.WORKSPACE,Table,Default constraint,DF_WORKSPACE_created_on,created_on = (sysdatetime())
+dbo.WORKSPACE,Table,Default constraint,DF_WORKSPACE_tenant_uuid,tenant_uuid = ('793F7093-329A-48F5-A30D-BA15A84FA5D1')
+dbo.WORKSPACE,Table,Default constraint,DF_WORKSPACE_updated_on,updated_on = (sysdatetime())
