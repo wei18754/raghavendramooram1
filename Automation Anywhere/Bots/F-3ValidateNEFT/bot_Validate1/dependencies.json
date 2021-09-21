@@ -1,1 +1,1 @@
-{"path":"Automation Anywhere\\Bots\\F-3ValidateNEFT\\Validate1","manualDependencies":[],"scannedDependencies":["Automation Anywhere\\Bots\\F-3ValidateNEFT\\Validate2"]}
+{"path":"Automation Anywhere\\Bots\\F-3ValidateNEFT\\Validate1","manualDependencies":[],"scannedDependencies":["Automation Anywhere\\Bots\\F-3ValidateNEFT\\Child1","Automation Anywhere\\Bots\\F-3ValidateNEFT\\Validate2"]}
